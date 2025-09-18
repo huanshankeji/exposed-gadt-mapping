@@ -9,3 +9,8 @@ dependencies {
     implementation(commonDependencies.kotlinCommon.reflect())
     implementation(commonDependencies.kotlinCommon.core())
 }
+
+// remove when there are tests
+tasks.test {
+    failOnNoDiscoveredTests = false
+}
