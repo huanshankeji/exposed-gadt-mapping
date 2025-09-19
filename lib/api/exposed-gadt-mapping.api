@@ -172,8 +172,8 @@ public final class com/huanshankeji/exposed/datamapping/classproperty/Reflection
 public abstract interface class com/huanshankeji/exposed/datamapping/classproperty/ReflectionBasedSimpleClassPropertyDataMapper : com/huanshankeji/exposed/datamapping/SimpleDataMapper {
 	public abstract fun getDataPrimaryConstructor ()Lkotlin/reflect/KFunction;
 	public abstract fun getPropertyAndColumnPairs ()Ljava/util/List;
-	public abstract fun resultRowToData (Lorg/jetbrains/exposed/sql/ResultRow;)Ljava/lang/Object;
-	public abstract fun setUpdateBuilder (Ljava/lang/Object;Lorg/jetbrains/exposed/sql/statements/UpdateBuilder;)V
+	public fun resultRowToData (Lorg/jetbrains/exposed/sql/ResultRow;)Ljava/lang/Object;
+	public fun setUpdateBuilder (Ljava/lang/Object;Lorg/jetbrains/exposed/sql/statements/UpdateBuilder;)V
 }
 
 public final class com/huanshankeji/exposed/datamapping/classproperty/ReflectionBasedSimpleClassPropertyDataMapper$DefaultImpls {
