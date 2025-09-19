@@ -1,4 +1,4 @@
-import com.huanshankeji.team.`Shreck Ye`
+import com.huanshankeji.team.ShreckYe
 import com.huanshankeji.team.pomForTeamDefaultOpenSource
 import com.huanshankeji.team.repositoriesAddTeamGithubPackagesMavenRegistry
 
@@ -24,6 +24,6 @@ publishing.publications.withType<MavenPublication> {
         "Exposed GADT mapping",
         "mappings between data entities and tables with support for generalized algebraic data types based on Exposed DSL"
     ) {
-        `Shreck Ye`()
+        ShreckYe()
     }
 }
