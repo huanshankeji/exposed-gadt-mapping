@@ -1,6 +1,5 @@
 import com.huanshankeji.team.ShreckYe
 import com.huanshankeji.team.pomForTeamDefaultOpenSource
-import com.huanshankeji.team.repositoriesAddTeamGithubPackagesMavenRegistry
 
 plugins {
     id("com.huanshankeji.kotlin-jvm-library-sonatype-ossrh-publish-conventions")
