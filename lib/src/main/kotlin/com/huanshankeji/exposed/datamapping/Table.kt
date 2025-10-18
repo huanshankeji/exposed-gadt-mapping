@@ -1,7 +1,8 @@
 package com.huanshankeji.exposed.datamapping
 
-import org.jetbrains.exposed.sql.ColumnSet
-import org.jetbrains.exposed.sql.Op
+import org.jetbrains.exposed.v1.core.ColumnSet
+import org.jetbrains.exposed.v1.core.Op
+import org.jetbrains.exposed.v1.jdbc.select
 
 fun <Data : Any> ColumnSet.selectWithMapper(mapper: NullableDataQueryMapper<Data>, where: Op<Boolean>? = null) =
     select(mapper.neededColumns)
