@@ -1,12 +1,12 @@
 package com.huanshankeji.exposed.datamapping.classproperty
 
 import com.huanshankeji.exposed.datamapping.SimpleDataMapper
-import org.jetbrains.exposed.dao.id.EntityID
-import org.jetbrains.exposed.sql.Alias
-import org.jetbrains.exposed.sql.Column
-import org.jetbrains.exposed.sql.ResultRow
-import org.jetbrains.exposed.sql.Table
-import org.jetbrains.exposed.sql.statements.UpdateBuilder
+import org.jetbrains.exposed.v1.core.Alias
+import org.jetbrains.exposed.v1.core.Column
+import org.jetbrains.exposed.v1.core.ResultRow
+import org.jetbrains.exposed.v1.core.Table
+import org.jetbrains.exposed.v1.core.dao.id.EntityID
+import org.jetbrains.exposed.v1.core.statements.UpdateBuilder
 import kotlin.reflect.KClass
 import kotlin.reflect.KFunction
 import kotlin.reflect.KProperty1

@@ -2,11 +2,12 @@ package com.huanshankeji.exposed.datamapping.classproperty
 
 import com.huanshankeji.exposed.datamapping.selectWithMapper
 import com.huanshankeji.exposed.datamapping.updateBuilderSetter
-import org.jetbrains.exposed.dao.id.IntIdTable
-import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
-import org.jetbrains.exposed.sql.SqlExpressionBuilder.inList
-import org.jetbrains.exposed.sql.insert
-import org.jetbrains.exposed.sql.transactions.transaction
+import org.jetbrains.exposed.v1.core.dao.id.IntIdTable
+import org.jetbrains.exposed.v1.core.eq
+import org.jetbrains.exposed.v1.core.inList
+import org.jetbrains.exposed.v1.jdbc.insert
+import org.jetbrains.exposed.v1.jdbc.select
+import org.jetbrains.exposed.v1.jdbc.transactions.transaction
 
 // copied and adapted from https://jetbrains.github.io/Exposed/deep-dive-into-dao.html
 
