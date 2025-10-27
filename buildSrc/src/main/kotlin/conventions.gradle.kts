@@ -22,7 +22,8 @@ publishing.publications.withType<MavenPublication> {
     pomForTeamDefaultOpenSource(
         project,
         "Exposed GADT mapping",
-        "mappings between data entities and tables with support for generalized algebraic data types based on Exposed DSL"
+        "mappings between data entities and tables with support for generalized algebraic data types based on Exposed DSL",
+        "2023"
     ) {
         ShreckYe()
     }

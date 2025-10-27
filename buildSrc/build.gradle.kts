@@ -20,7 +20,7 @@ repositories {
 dependencies {
     // With Kotlin 2.0.20, a "Could not parse POM" build error occurs in the JVM projects of some dependent projects.
     implementation(kotlin("gradle-plugin", "2.2.21"))
-    implementation("com.huanshankeji:common-gradle-dependencies:0.10.0-20251024-SNAPSHOT") // TODO don't use a snapshot version in a main branch
-    implementation("com.huanshankeji.team:gradle-plugins:0.10.0-SNAPSHOT") // TODO don't use a snapshot version in a main branch
+    implementation("com.huanshankeji:common-gradle-dependencies:0.10.0-20251024") // don't use a snapshot version in a main branch
+    implementation("com.huanshankeji.team:gradle-plugins:0.11.0") // don't use a snapshot version in a main branch
     implementation("org.jetbrains.dokka:dokka-gradle-plugin:2.1.0")
 }
