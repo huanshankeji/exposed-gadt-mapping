@@ -1,9 +1,9 @@
 package com.huanshankeji.exposed.datamapping
 
-import org.jetbrains.exposed.sql.Column
-import org.jetbrains.exposed.sql.ColumnSet
-import org.jetbrains.exposed.sql.ResultRow
-import org.jetbrains.exposed.sql.statements.UpdateBuilder
+import org.jetbrains.exposed.v1.core.Column
+import org.jetbrains.exposed.v1.core.ColumnSet
+import org.jetbrains.exposed.v1.core.ResultRow
+import org.jetbrains.exposed.v1.core.statements.UpdateBuilder
 
 fun interface SimpleNullableDataQueryMapper<Data> {
     fun resultRowToData(resultRow: ResultRow): Data

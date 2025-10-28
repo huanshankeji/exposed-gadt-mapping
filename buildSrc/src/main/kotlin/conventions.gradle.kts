@@ -1,6 +1,5 @@
-import com.huanshankeji.team.`Shreck Ye`
+import com.huanshankeji.team.ShreckYe
 import com.huanshankeji.team.pomForTeamDefaultOpenSource
-import com.huanshankeji.team.repositoriesAddTeamGithubPackagesMavenRegistry
 
 plugins {
     id("com.huanshankeji.kotlin-jvm-library-sonatype-ossrh-publish-conventions")
@@ -12,7 +11,8 @@ repositories {
     mavenLocal()
     mavenCentral()
 }
-repositoriesAddTeamGithubPackagesMavenRegistry("kotlin-common")
+// commented out as it may slow down the build, especially when the GitHub token is incorrect and authentication fails
+//repositoriesAddTeamGithubPackagesMavenRegistry("kotlin-common")
 
 kotlin.jvmToolchain(8)
 
@@ -22,8 +22,9 @@ publishing.publications.withType<MavenPublication> {
     pomForTeamDefaultOpenSource(
         project,
         "Exposed GADT mapping",
-        "mappings between data entities and tables with support for generalized algebraic data types based on Exposed DSL"
+        "mappings between data entities and tables with support for generalized algebraic data types based on Exposed DSL",
+        "2023"
     ) {
-        `Shreck Ye`()
+        ShreckYe()
     }
 }
