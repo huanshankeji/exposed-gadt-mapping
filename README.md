@@ -6,6 +6,10 @@ A library based on [Exposed](https://github.com/JetBrains/Exposed) [DSL](https:/
 
 This project is an attempt to provide an alternative to [Exposed DAO](https://github.com/JetBrains/Exposed/wiki/DAO) while supporting some more advanced functional programming features. See JetBrains/Exposed#24 for more details.
 
+## Highly experimental
+
+This library is highly experimental now. The APIs are subject to change, there are currently no tests (its usability is guaranteed by our internal consuming projects though), and please expect bugs and report them.
+
 ## Add to your dependencies
 
 ### The Maven coordinate
