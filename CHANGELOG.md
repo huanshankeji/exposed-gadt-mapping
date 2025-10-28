@@ -1,5 +1,13 @@
 # Change log
 
+## v0.4.0 / 2025-10-28
+
+* rename project from "exposed-adt-mapping" to "exposed-gadt-mapping"
+* migrate to Exposed v1 and bump the JDK toolchain correspondingly to 11
+* bump toolchains and dependencies to the latest
+    * Gradle 9.1.0
+    * Kotlin 2.2.21
+
 ## v0.3.0 / 2024-11-29
 
 There are no functional changes in this release.

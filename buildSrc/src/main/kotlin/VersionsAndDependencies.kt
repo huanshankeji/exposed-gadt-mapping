@@ -1,7 +1,8 @@
 import com.huanshankeji.CommonDependencies
 import com.huanshankeji.CommonVersions
 
-val projectVersion = "0.3.0"
+val projectVersion = "0.4.0"
 
-val commonVersions = CommonVersions(kotlinCommon = "0.6.0", exposed = "0.56.0")
+// TODO don't use a snapshot version in a main branch
+val commonVersions = CommonVersions(kotlinCommon = "0.7.0")
 val commonDependencies = CommonDependencies(commonVersions)

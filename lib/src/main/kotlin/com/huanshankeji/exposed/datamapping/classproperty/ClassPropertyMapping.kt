@@ -9,9 +9,11 @@ import com.huanshankeji.exposed.datamapping.classproperty.PropertyColumnMapping.
 import com.huanshankeji.kotlin.reflect.fullconcretetype.FullConcreteTypeClass
 import com.huanshankeji.kotlin.reflect.fullconcretetype.FullConcreteTypeProperty1
 import com.huanshankeji.kotlin.reflect.fullconcretetype.fullConcreteTypeClassOf
-import org.jetbrains.exposed.sql.*
-import org.jetbrains.exposed.sql.statements.UpdateBuilder
+import org.jetbrains.exposed.v1.core.*
+import org.jetbrains.exposed.v1.core.statements.UpdateBuilder
 import org.slf4j.LoggerFactory
+import kotlin.collections.first
+import kotlin.collections.single
 import kotlin.reflect.KClass
 import kotlin.reflect.KProperty1
 import kotlin.reflect.KType
@@ -19,6 +21,13 @@ import kotlin.reflect.full.isSubclassOf
 import kotlin.reflect.full.primaryConstructor
 import kotlin.reflect.typeOf
 import kotlin.sequences.Sequence
+import kotlin.sequences.associateBy
+import kotlin.sequences.associateWith
+import kotlin.sequences.filterNot
+import kotlin.sequences.flatMap
+import kotlin.sequences.groupBy
+import kotlin.sequences.map
+import kotlin.sequences.toSet
 
 // Our own class mapping implementation using reflection which should be adapted using annotation processors and code generation in the future.
 
