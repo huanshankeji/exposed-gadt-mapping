@@ -1,8 +1,10 @@
 import com.huanshankeji.team.ShreckYe
-import com.huanshankeji.team.pomForTeamDefaultOpenSource
+import com.huanshankeji.team.setUpPomForTeamDefaultOpenSource
 
 plugins {
-    id("com.huanshankeji.kotlin-jvm-library-sonatype-ossrh-publish-conventions")
+    kotlin("jvm")
+    `java-library`
+    id("com.huanshankeji.maven-central-publish-conventions")
     id("com.huanshankeji.team.with-group")
     id("com.huanshankeji.team.default-github-packages-maven-publish")
 }
@@ -18,8 +20,8 @@ kotlin.jvmToolchain(8)
 
 version = projectVersion
 
-publishing.publications.withType<MavenPublication> {
-    pomForTeamDefaultOpenSource(
+mavenPublishing.pom {
+    setUpPomForTeamDefaultOpenSource(
         project,
         "Exposed GADT mapping",
         "mappings between data entities and tables with support for generalized algebraic data types based on Exposed DSL",
