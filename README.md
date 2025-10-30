@@ -18,7 +18,7 @@ This library is highly experimental now. The APIs are subject to change, there a
 "com.huanshankeji:exposed-gadt-mapping:$libraryVersion"
 ```
 
-### **Important note : compabitility with Exposed**
+### **Important note : compatibility with Exposed**
 
 If you encounter issues likely caused by compatibility with Exposed, please try using the same version of Exposed this library depends on. The current Exposed version for v0.4.0 of this library is v1.0.0-rc-2.
 
