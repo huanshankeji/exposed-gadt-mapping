@@ -20,7 +20,7 @@ This library is highly experimental now. The APIs are subject to change, there a
 
 ### **Important note**
 
-As Exposed is a library that has not reached stability yet and often has incompatible changes, you are recommended to stick to the same version of Exposed used by this library. The current version is v0.56.0.
+If you encounter issues likely caused by compatibility with Exposed, please try using the same version of Exposed this library depends on. The current Exposed version is v1.0.0-rc-2.
 
 ## Basic usage guide
 
