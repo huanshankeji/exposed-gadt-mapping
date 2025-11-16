@@ -95,7 +95,6 @@ fun main() {
         val fullFilm = with(Mappers.fullFilm) {
             resultRowToData(filmsLeftJoinDirectors.select(neededColumns).where(Films.filmId eq filmId).single())
         }
-        // not available yet, available soon in 0.2.0
         val fullFilms =
             filmsLeftJoinDirectors.selectWithMapper(Mappers.fullFilm, Films.filmId inList listOf(1, 2)).toList()
     }
