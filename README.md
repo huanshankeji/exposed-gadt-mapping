@@ -121,8 +121,8 @@ Call `updateBuilderSetter` to get a setter lambda to pass to `insert` or `update
 
 ```kotlin
 val directorId = 1
-val director = Director(directorId, "George Lucas")
-Directors.insert(Mappers.director.updateBuilderSetter(director))
+val directorDetails = DirectorDetails("George Lucas")
+Directors.insert(Mappers.directorDetails.updateBuilderSetter(directorDetails))
 
 val episodeIFilmDetails = FilmDetails(1, "Star Wars: Episode I – The Phantom Menace", directorId)
 Films.insert(Mappers.filmDetailsWithDirectorId.updateBuilderSetter(episodeIFilmDetails)) // insert without the ID since it's `AUTO_INCREMENT`
@@ -130,7 +130,10 @@ Films.insert(Mappers.filmDetailsWithDirectorId.updateBuilderSetter(episodeIFilmD
 val filmId = 2
 val episodeIIFilmDetails = FilmDetails(2, "Star Wars: Episode II – Attack of the Clones", directorId)
 val filmWithDirectorId = FilmWithDirectorId(filmId, episodeIIFilmDetails)
-Films.insert(Mappers.filmWithDirectorId.updateBuilderSetter(filmWithDirectorId)) // insert with the ID
+if (dialectSupportsIdentityInsert)
+    Films.insert(Mappers.filmWithDirectorId.updateBuilderSetter(filmWithDirectorId)) // insert with the ID
+else
+    Films.insert(Mappers.filmDetailsWithDirectorId.updateBuilderSetter(episodeIIFilmDetails))
 
 val fullFilm = with(Mappers.fullFilm) {
     resultRowToData(filmsLeftJoinDirectors.select(neededColumns).where(Films.filmId eq filmId).single())

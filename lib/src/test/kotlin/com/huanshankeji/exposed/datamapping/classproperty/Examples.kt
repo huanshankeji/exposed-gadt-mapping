@@ -28,6 +28,7 @@ val filmsLeftJoinDirectors = Films leftJoin Directors
 
 typealias DirectorId = Int
 
+class DirectorDetails(val name: String)
 class Director(val directorId: DirectorId, val name: String)
 
 class FilmDetails<DirectorT>(
@@ -45,6 +46,7 @@ typealias FullFilm = Film<Director>
 
 
 object Mappers {
+    val directorDetails = reflectionBasedClassPropertyDataMapper<DirectorDetails>(Directors)
     val director = reflectionBasedClassPropertyDataMapper<Director>(Directors)
     val filmDetailsWithDirectorId = reflectionBasedClassPropertyDataMapper<FilmDetailsWithDirectorId>(
         Films,
@@ -79,10 +81,11 @@ object Mappers {
 
 fun main() {
     // TODO create a database with Testcontainers and connect
+    val dialectSupportsIdentityInsert: Boolean = true
     transaction {
         val directorId = 1
-        val director = Director(directorId, "George Lucas")
-        Directors.insert(Mappers.director.updateBuilderSetter(director))
+        val directorDetails = DirectorDetails("George Lucas")
+        Directors.insert(Mappers.directorDetails.updateBuilderSetter(directorDetails))
 
         val episodeIFilmDetails = FilmDetails(1, "Star Wars: Episode I – The Phantom Menace", directorId)
         Films.insert(Mappers.filmDetailsWithDirectorId.updateBuilderSetter(episodeIFilmDetails)) // insert without the ID since it's `AUTO_INCREMENT`
@@ -90,7 +93,10 @@ fun main() {
         val filmId = 2
         val episodeIIFilmDetails = FilmDetails(2, "Star Wars: Episode II – Attack of the Clones", directorId)
         val filmWithDirectorId = FilmWithDirectorId(filmId, episodeIIFilmDetails)
-        Films.insert(Mappers.filmWithDirectorId.updateBuilderSetter(filmWithDirectorId)) // insert with the ID
+        if (dialectSupportsIdentityInsert)
+            Films.insert(Mappers.filmWithDirectorId.updateBuilderSetter(filmWithDirectorId)) // insert with the ID
+        else
+            Films.insert(Mappers.filmDetailsWithDirectorId.updateBuilderSetter(episodeIIFilmDetails))
 
         val fullFilm = with(Mappers.fullFilm) {
             resultRowToData(filmsLeftJoinDirectors.select(neededColumns).where(Films.filmId eq filmId).single())
