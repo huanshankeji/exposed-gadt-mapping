@@ -51,7 +51,7 @@ This is a **Kotlin/JVM library** that provides mappings between data entities an
 - Duration: ~1-2 seconds
 - This project uses Kotlin Binary Compatibility Validator
 - The API surface is tracked in `lib/api/exposed-gadt-mapping.api`
-- **Critical:** If you modify public APIs, this will fail unless you run `./gradlew apiDump` to update the API file
+- **Critical:** If you modify public APIs, `apiCheck` (and therefore `check`) will fail because the `.api` file is out of date — see **API Change Policy** below for how to handle this
 
 **5. Publish to Maven Local (for testing in dependent projects):**
 ```bash
@@ -68,6 +68,26 @@ This is a **Kotlin/JVM library** that provides mappings between data entities an
 - Duration: ~12 seconds
 - Output: `build/dokka/html/`
 - Expected warnings about package-list downloads are harmless
+
+### API Change Policy
+
+If `./gradlew check` fails **solely** due to `apiCheck` failures (because public APIs have changed and the `.api` file is out of date), **do NOT run `apiDump` automatically**. Instead, validate using:
+
+```bash
+./gradlew test
+./gradlew publishToMavenLocal
+```
+
+> **Note:** This repo currently has no real tests (`failOnNoDiscoveredTests = false`), so `./gradlew test` will pass trivially. The key fallback validation is `./gradlew publishToMavenLocal`.
+
+Then leave the `apiDump` step to the human developer to perform after they have reviewed the API changes. Running `apiDump` automatically generates unnecessary Git-tracked churn before the developer has had a chance to review the API surface.
+
+**Only run `apiDump` if you are very confident you have completely and correctly finished all the task goals and no further API edits from the developer will be needed.**
+
+To update the API dump file (human-initiated only):
+```bash
+./gradlew apiDump
+```
 
 ### Common Build Issues & Solutions
 
@@ -193,15 +213,15 @@ This is a **Kotlin/JVM library** that provides mappings between data entities an
 
 ### Binary Compatibility
 - The project uses `kotlinx.binary-compatibility-validator` version 0.18.1
-- Public API changes require updating the API dump: `./gradlew apiDump`
-- The `.api` file is tracked in version control at `lib/api/exposed-gadt-mapping.api`
+- Public API changes will cause `apiCheck` to fail; the API surface is tracked in `lib/api/exposed-gadt-mapping.api`
+- **Do NOT run `apiDump` automatically** — leave it for the human developer to run after reviewing API changes (see **API Change Policy** above)
 
 ## Making Changes
 
 ### Workflow for Code Changes
 1. Make your changes to Kotlin source files
 2. Run `./gradlew check` to verify compilation and API compatibility
-3. If you changed public APIs, run `./gradlew apiDump` to update the API baseline
+3. If `check` fails solely due to `apiCheck` (public APIs changed), do **not** run `apiDump` — instead validate with `./gradlew test` and `./gradlew publishToMavenLocal`, then leave `apiDump` for the human developer to run after reviewing API changes (see **API Change Policy**)
 4. If adding dependencies, verify they're compatible with Exposed v1.0.0-rc-2
 5. Test in a dependent project using `./gradlew publishToMavenLocal`
 
@@ -220,7 +240,7 @@ This is a **Kotlin/JVM library** that provides mappings between data entities an
 1. **Always use `./gradlew`** - The wrapper ensures Gradle 9.1.0 is used
 2. **JVM Toolchain is 8** - Despite using Kotlin 2.2.21, the compilation target is Java 8
 3. **No real tests exist** - Your changes won't be validated by comprehensive tests
-4. **API stability matters** - Run `apiCheck` before committing, use `apiDump` if intentionally changing APIs
+4. **API stability matters** - Run `apiCheck` before committing; if it fails due to API changes, follow the **API Change Policy** — do **not** run `apiDump` automatically
 5. **Exposed version coupling** - Be very careful changing the Exposed dependency version
 6. **Configuration cache is enabled** - If you see issues, try `--no-configuration-cache`
 7. **Limited team resources** - Per CONTRIBUTING.md, this is a small team with limited capacity
