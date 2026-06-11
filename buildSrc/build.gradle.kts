@@ -5,22 +5,15 @@ plugins {
 repositories {
     mavenLocal()
     gradlePluginPortal()
-    // commented out as it may slow down the build, especially when the GitHub token is incorrect and authentication fails
-    /*
-    maven {
-        url = uri("https://maven.pkg.github.com/huanshankeji/gradle-common")
-        credentials {
-            username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
-            password = project.findProperty("gpr.key") as String? ?: System.getenv("TOKEN")
-        }
-    }
-    */
 }
 
+val gradleCommonPluginsVersion =
+    "0.13.0-dev-commit-dcac1d6c7871d46082c1fc71b411077daa199c6f"
+
 dependencies {
-    // With Kotlin 2.0.20, a "Could not parse POM" build error occurs in the JVM projects of some dependent projects.
-    implementation(kotlin("gradle-plugin", "2.2.21"))
-    implementation("com.huanshankeji:common-gradle-dependencies:0.10.0-20251024") // don't use a snapshot version in a main branch
-    implementation("com.huanshankeji.team:gradle-plugins:0.11.0") // don't use a snapshot version in a main branch
-    implementation("org.jetbrains.dokka:dokka-gradle-plugin:2.1.0")
+    implementation(kotlin("gradle-plugin", "2.4.0"))
+    implementation("com.huanshankeji:common-gradle-dependencies:0.10.0-20251024")
+    implementation("com.huanshankeji.team:gradle-plugins:$gradleCommonPluginsVersion")
+    implementation("com.huanshankeji:kotlin-common-gradle-plugins:$gradleCommonPluginsVersion")
+    implementation("org.jetbrains.dokka:dokka-gradle-plugin:2.2.0")
 }

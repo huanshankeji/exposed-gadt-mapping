@@ -1,6 +1,5 @@
 plugins {
-    conventions
-    id("com.huanshankeji.team.dokka.github-dokka-convention")
+    `jvm-conventions`
 }
 
 dependencies {
