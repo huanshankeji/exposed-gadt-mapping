@@ -1,4 +1,8 @@
+@file:OptIn(com.huanshankeji.GradleCommonExperimentalApi::class)
+
+import com.huanshankeji.artifacts.mavenRepositoryHandlerContext
 import com.huanshankeji.team.artifacts.mavenCentralExcludingHuanshankeji
+import com.huanshankeji.team.gitversioning.opensourcemavenconvention.githubpackages.huanshankejiGithubPackagesOpenSourceMavenConventionProjectRepositories
 
 pluginManagement {
     repositories {
@@ -46,6 +50,9 @@ plugins {
 dependencyResolutionManagement {
     repositories {
         mavenCentralExcludingHuanshankeji()
+        mavenRepositoryHandlerContext(providers, ::uri) {
+            huanshankejiGithubPackagesOpenSourceMavenConventionProjectRepositories("kotlin-common")
+        }
     }
 }
 
