@@ -1,4 +1,4 @@
-import com.huanshankeji.gitversioning.projectVersionFromGitProvider
+import com.huanshankeji.gitversioning.devCommitVersionProvider
 import com.huanshankeji.team.ShreckYe
 import com.huanshankeji.team.setUpPomForTeamDefaultOpenSource
 
@@ -9,7 +9,7 @@ plugins {
     id("com.huanshankeji.maven-central-publish-conventions")
 }
 
-version = providers.projectVersionFromGitProvider(projectBaseVersion).get()
+version = providers.devCommitVersionProvider(projectBaseVersion).get()
 
 mavenPublishing.pom {
     setUpPomForTeamDefaultOpenSource(
