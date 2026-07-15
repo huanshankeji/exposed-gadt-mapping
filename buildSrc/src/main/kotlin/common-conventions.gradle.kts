@@ -9,7 +9,7 @@ plugins {
     id("com.huanshankeji.maven-central-publish-conventions")
 }
 
-version = projectVersionFromGitProvider(projectBaseVersion).get()
+version = providers.projectVersionFromGitProvider(projectBaseVersion).get()
 
 mavenPublishing.pom {
     setUpPomForTeamDefaultOpenSource(
