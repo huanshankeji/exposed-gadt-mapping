@@ -1,12 +1,21 @@
 import com.huanshankeji.gitversioning.devCommitOrReleaseVersionProvider
 import com.huanshankeji.team.ShreckYe
 import com.huanshankeji.team.setUpPomForTeamDefaultOpenSource
+import org.jetbrains.kotlin.gradle.dsl.abi.ExperimentalAbiValidation
 
 plugins {
+    kotlin("jvm")
+    `java-library`
     id("com.huanshankeji.team.with-group")
     id("com.huanshankeji.team.gitversioning.opensourceconvention.githubpackages.publish")
-    id("dokka-convention")
 }
+
+kotlin {
+    @OptIn(ExperimentalAbiValidation::class)
+    abiValidation()
+}
+
+kotlin.jvmToolchain(8)
 
 version = providers.devCommitOrReleaseVersionProvider(projectBaseVersion, isRelease).get()
 
