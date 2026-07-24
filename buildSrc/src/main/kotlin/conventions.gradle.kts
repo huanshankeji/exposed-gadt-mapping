@@ -1,24 +1,27 @@
+import com.huanshankeji.gitversioning.devCommitOrReleaseVersionProvider
 import com.huanshankeji.team.ShreckYe
 import com.huanshankeji.team.setUpPomForTeamDefaultOpenSource
+import org.jetbrains.kotlin.gradle.dsl.abi.ExperimentalAbiValidation
 
 plugins {
     kotlin("jvm")
     `java-library`
-    id("com.huanshankeji.maven-central-publish-conventions")
     id("com.huanshankeji.team.with-group")
-    id("com.huanshankeji.team.default-github-packages-maven-publish")
+    id("com.huanshankeji.team.gitversioning.opensourceconvention.githubpackages.publish")
 }
 
-repositories {
-    mavenLocal()
-    mavenCentral()
+kotlin {
+    @OptIn(ExperimentalAbiValidation::class)
+    abiValidation()
 }
-// commented out as it may slow down the build, especially when the GitHub token is incorrect and authentication fails
-//repositoriesAddTeamGithubPackagesMavenRegistry("kotlin-common")
 
 kotlin.jvmToolchain(8)
 
-version = projectVersion
+version = providers.devCommitOrReleaseVersionProvider(projectBaseVersion, isRelease).get()
+
+gitVersioningOpenSourceConventionGithubPackagesPublish {
+    signAllPublicationsIfRelease(isRelease)
+}
 
 mavenPublishing.pom {
     setUpPomForTeamDefaultOpenSource(

@@ -1,10 +1,6 @@
-tasks.wrapper {
-    distributionType = Wrapper.DistributionType.ALL
-}
-
 plugins {
     id("org.jetbrains.dokka")
-    id("org.jetbrains.kotlinx.binary-compatibility-validator") version "0.18.1"
+    id("com.huanshankeji.root-project-conventions")
 }
 
 dependencies {
