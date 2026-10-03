@@ -11,11 +11,15 @@ plugins {
 }
 
 kotlin {
+    compilerOptions {
+        optIn.add("com.huanshankeji.ExperimentalApi")
+    }
+
     @OptIn(ExperimentalAbiValidation::class)
     abiValidation()
 }
 
-kotlin.jvmToolchain(8)
+kotlin.jvmToolchain(11)
 
 version = providers.devCommitOrReleaseVersionProvider(projectBaseVersion, isRelease).get()
 

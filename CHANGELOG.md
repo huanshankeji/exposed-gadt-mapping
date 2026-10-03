@@ -1,5 +1,10 @@
 # Change log
 
+## Unreleased
+
+* Move the data-mapper interfaces and `updateBuilderSetter` to kotlin-common's `exposed` module. The reflection implementation depends on those types. (#18)
+* Compile with JDK 11 so this library can depend on kotlin-common 0.8.0.
+
 ## v0.4.0 / 2025-10-28
 
 * rename project from "exposed-adt-mapping" to "exposed-gadt-mapping"

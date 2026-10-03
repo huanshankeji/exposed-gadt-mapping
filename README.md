@@ -8,7 +8,7 @@ This project is an attempt to provide an alternative to [Exposed DAO](https://gi
 
 ## Maintenance status
 
-This library is **no longer actively maintained**. GADT-style Exposed mappings are no tnat necessary now that AI agents can generate mapping code ad hoc for each schema and entity model. The repository and Maven artifacts remain available for existing users (including the optional `crud-with-mapper` module in [exposed-vertx-sql-client](https://github.com/huanshankeji/exposed-vertx-sql-client)), but expect no new features or routine fixes.
+This library is **no longer actively maintained**. GADT-style Exposed mappings are no tnat necessary now that AI agents can generate mapping code ad hoc for each schema and entity model. The repository and Maven artifacts remain available for existing users, but expect no new features or routine fixes. The data-mapper interfaces and `updateBuilderSetter` now live in [kotlin-common](https://github.com/huanshankeji/kotlin-common)'s `exposed` module (`com.huanshankeji:kotlin-common-exposed`). The reflection implementation here depends on them.
 
 ## Highly experimental
 
