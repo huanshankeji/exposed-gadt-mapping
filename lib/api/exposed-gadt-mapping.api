@@ -1,37 +1,3 @@
-public abstract interface class com/huanshankeji/exposed/datamapping/DataMapper : com/huanshankeji/exposed/datamapping/DataQueryMapper, com/huanshankeji/exposed/datamapping/NullableDataMapper, com/huanshankeji/exposed/datamapping/SimpleDataMapper {
-}
-
-public final class com/huanshankeji/exposed/datamapping/DataMapperInterfacesKt {
-	public static final fun updateBuilderSetter (Lcom/huanshankeji/exposed/datamapping/DataUpdateMapper;Ljava/lang/Object;)Lkotlin/jvm/functions/Function2;
-}
-
-public abstract interface class com/huanshankeji/exposed/datamapping/DataQueryMapper : com/huanshankeji/exposed/datamapping/NullableDataQueryMapper {
-}
-
-public abstract interface class com/huanshankeji/exposed/datamapping/DataUpdateMapper : com/huanshankeji/exposed/datamapping/NullableDataUpdateMapper {
-}
-
-public abstract interface class com/huanshankeji/exposed/datamapping/NullableDataMapper : com/huanshankeji/exposed/datamapping/NullableDataQueryMapper, com/huanshankeji/exposed/datamapping/NullableDataUpdateMapper {
-}
-
-public abstract interface class com/huanshankeji/exposed/datamapping/NullableDataQueryMapper : com/huanshankeji/exposed/datamapping/SimpleNullableDataQueryMapper {
-	public abstract fun getNeededColumns ()Ljava/util/List;
-}
-
-public abstract interface class com/huanshankeji/exposed/datamapping/NullableDataUpdateMapper {
-	public abstract fun setUpdateBuilder (Ljava/lang/Object;Lorg/jetbrains/exposed/v1/core/statements/UpdateBuilder;)V
-}
-
-public abstract interface class com/huanshankeji/exposed/datamapping/SimpleDataMapper : com/huanshankeji/exposed/datamapping/DataUpdateMapper, com/huanshankeji/exposed/datamapping/SimpleDataQueryMapper {
-}
-
-public abstract interface class com/huanshankeji/exposed/datamapping/SimpleDataQueryMapper : com/huanshankeji/exposed/datamapping/SimpleNullableDataQueryMapper {
-}
-
-public abstract interface class com/huanshankeji/exposed/datamapping/SimpleNullableDataQueryMapper {
-	public abstract fun resultRowToData (Lorg/jetbrains/exposed/v1/core/ResultRow;)Ljava/lang/Object;
-}
-
 public final class com/huanshankeji/exposed/datamapping/TableKt {
 	public static final fun selectWithMapper (Lorg/jetbrains/exposed/v1/core/ColumnSet;Lcom/huanshankeji/exposed/datamapping/NullableDataQueryMapper;Lorg/jetbrains/exposed/v1/core/Op;)Lkotlin/sequences/Sequence;
 	public static synthetic fun selectWithMapper$default (Lorg/jetbrains/exposed/v1/core/ColumnSet;Lcom/huanshankeji/exposed/datamapping/NullableDataQueryMapper;Lorg/jetbrains/exposed/v1/core/Op;ILjava/lang/Object;)Lkotlin/sequences/Sequence;

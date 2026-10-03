@@ -1,6 +1,9 @@
+@file:OptIn(ExperimentalApi::class)
+
 package com.huanshankeji.exposed.datamapping.classproperty
 
 import com.huanshankeji.BidirectionalConversion
+import com.huanshankeji.ExperimentalApi
 import com.huanshankeji.exposed.datamapping.DataMapper
 import com.huanshankeji.exposed.datamapping.NullableDataMapper
 import com.huanshankeji.exposed.datamapping.classproperty.OnDuplicateColumnPropertyNames.CHOOSE_FIRST

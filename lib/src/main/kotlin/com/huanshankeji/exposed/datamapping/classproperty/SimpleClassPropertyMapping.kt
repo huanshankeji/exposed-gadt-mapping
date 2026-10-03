@@ -1,5 +1,8 @@
+@file:OptIn(ExperimentalApi::class)
+
 package com.huanshankeji.exposed.datamapping.classproperty
 
+import com.huanshankeji.ExperimentalApi
 import com.huanshankeji.exposed.datamapping.SimpleDataMapper
 import org.jetbrains.exposed.v1.core.Alias
 import org.jetbrains.exposed.v1.core.Column

@@ -1,5 +1,10 @@
 # Change log
 
+## Unreleased
+
+* drop the data-mapper interfaces and `updateBuilderSetter`; depend on the experimental copies in `kotlin-common`'s `exposed` module. The reflection / GADT mapping implementation stays here and uses those APIs ([#18](https://github.com/huanshankeji/exposed-gadt-mapping/issues/18))
+* compile with JDK 11 so this library can depend on `kotlin-common-exposed`, and run CI/publish on JDK 11 and 17
+
 ## v0.4.0 / 2025-10-28
 
 * rename project from "exposed-adt-mapping" to "exposed-gadt-mapping"

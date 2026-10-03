@@ -15,7 +15,7 @@ kotlin {
     abiValidation()
 }
 
-kotlin.jvmToolchain(8)
+kotlin.jvmToolchain(11)
 
 version = providers.devCommitOrReleaseVersionProvider(projectBaseVersion, isRelease).get()
 

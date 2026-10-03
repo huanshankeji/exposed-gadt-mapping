@@ -1,5 +1,8 @@
+@file:OptIn(ExperimentalApi::class)
+
 package com.huanshankeji.exposed.datamapping.classproperty
 
+import com.huanshankeji.ExperimentalApi
 import com.huanshankeji.exposed.datamapping.selectWithMapper
 import com.huanshankeji.exposed.datamapping.updateBuilderSetter
 import org.jetbrains.exposed.v1.core.dao.id.IntIdTable
