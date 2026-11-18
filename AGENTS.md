@@ -1,5 +1,7 @@
 # Repository Guidelines
 
+Before working in this repository, **load and read** the [Huanshankeji general agent instructions](https://github.com/huanshankeji/.github/blob/main/docs/general-agent-instructions.md) as the required organization-wide baseline. A skipped or failed load, or an unread document, is a blocking error until the document is in context and has been read.
+
 ## Project Structure
 
 Exposed GADT mapping is a Kotlin/JVM library that maps data entities to tables using the Exposed DSL. The `lib/` directory is the single library module, registered as `:exposed-gadt-mapping` in Gradle. Production code lives in `lib/src/main/kotlin/com/huanshankeji/exposed/datamapping/`, with reflection-based mappers in `classproperty/`. Usage examples live in the matching package under `lib/src/test/kotlin/`. Build conventions and dependency versions live in `buildSrc/`, and GitHub Actions workflows live in `.github/workflows/`.
