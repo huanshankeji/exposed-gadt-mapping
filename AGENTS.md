@@ -12,8 +12,10 @@ Use the checked-in Gradle wrapper from the repository root. CI uses Temurin 17 t
 
 - `./gradlew build` compiles, packages, and verifies the library.
 - `./gradlew check` runs the Gradle verification lifecycle. `./gradlew :exposed-gadt-mapping:test` runs the module's test task on its own.
-- `./gradlew :exposed-gadt-mapping:checkKotlinAbi` compares the public ABI with `lib/api/exposed-gadt-mapping.api`. Run `./gradlew :exposed-gadt-mapping:updateKotlinAbi` for intentional ABI changes and review the resulting diff.
+- Run `./gradlew checkKotlinAbi` to compare the current ABI with the tracked reference snapshots. For intentional ABI changes, run `./gradlew updateKotlinAbi` and review the generated diff before including the updated snapshots. See [Kotlin’s ABI validation guide](https://kotlinlang.org/docs/gradle-binary-compatibility-validation.html).
 - `./gradlew publishToMavenLocal` publishes the library for use in a local consumer project.
+
+The library’s reference snapshot is `lib/api/exposed-gadt-mapping.api`.
 
 To resolve `*-dev-commit-*` Huanshankeji dependencies from GitHub Packages, configure `gpr.user` and `gpr.key` in `~/.gradle/gradle.properties` with a token that has `read:packages`. See [CONTRIBUTING.md](CONTRIBUTING.md) for setup details.
 
